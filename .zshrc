@@ -3,15 +3,22 @@
 autoload -Uz promptinit
 #This loads the Version Control System into your prompt
 autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b ' #sets up the Git branch details into your prompt
 precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b ' #sets up the Git branch details into your prompt
+
+#PROMPT_SUBST - for using variables in conf
+setopt PROMPT_SUBST
 
 promptinit
-prompt adam1
+#prompt adam1
+#PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+if [[ $EUID -ne 0 ]]; then
+    PROMPT='%F{008}[%*]%f%F{007}%m%f%F{004}../%C%f %K{004}%F{011}${vcs_info_msg_0_}%f%k%F{010}$%f:'
+else
+    PROMPT='%F{008}[%*]%f%F{007}%m%f%F{004}../%C%f %K{004}%F{011}${vcs_info_msg_0_}%f%k%F{009}#%f:'
+fi
 
 setopt histignorealldups sharehistory prompt_subst INC_APPEND_HISTORY EXTENDED_HISTORY
-unsetopt HIST_SAVE_NO_DUPS       # Write a duplicate event to the history file
-#PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
@@ -65,3 +72,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/vd8ri3all/perl5"; export PERL_MM_OPT;
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 source ~/.helmrc
+
