@@ -40,7 +40,7 @@ autoload -Uz compinit    # this for initialization completion
 compinit                 # this for initialization completion:w
 
 #can display the list of files and folder matched with more details, similar to the information you can display with ls -l
-zstyle ':completion:*' file-list all   
+zstyle ':completion:*' file-list all
 
 # Allow you to select in a menu
 #zstyle ':completion:*' menu select
@@ -63,13 +63,12 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-PATH="/home/vd8ri3all/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/vd8ri3all/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/vd8ri3all/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/vd8ri3all/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/vd8ri3all/perl5"; export PERL_MM_OPT;
+PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-source ~/.helmrc
-
+#complete -o nospace -C /usr/bin/terraform terraform
+#source ~/.helmrc
