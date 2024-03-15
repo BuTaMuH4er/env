@@ -1,0 +1,11 @@
+RemoteCommand zsh
+RequestTTY force
+
+Host blahblah
+    IdentityFile ~/.ssh/id_rsa
+    User akozhokhin
+
+Host master
+    Hostname 192.168.88.101
+    IdentityFile ~/.ssh/id_rsa
+    User master
