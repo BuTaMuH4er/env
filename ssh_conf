@@ -1,4 +1,4 @@
-RemoteCommand zsh
+RemoteCommand if [[ -e /usr/bin/zsh ]]; then zsh; fi
 RequestTTY force
 
 Host blahblah
