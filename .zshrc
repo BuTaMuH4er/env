@@ -70,8 +70,7 @@ PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
 
 autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /usr/bin/terraform terraform
-#source ~/.helmrc
+complete -o nospace -C /usr/bin/terraform terraform
 
 setopt EXTENDED_HISTORY      # Делать записи в файле истории в формате ':start:elapsed;command'.
 setopt INC_APPEND_HISTORY    # Писать данные в файл истории немедленно, а не тогда, когда осуществляется выход из оболочки.
@@ -84,3 +83,15 @@ setopt HIST_VERIFY           # Перед выполнением команд п
 setopt APPEND_HISTORY        # Добавлять записи к файлу истории (по умолчанию).
 setopt HIST_NO_STORE         # Не хранить записи о командах history.
 setopt HIST_REDUCE_BLANKS    # Убирать лишние пробелы из командных строк, добавляемых в историю.
+
+#helm && kubectl completion
+
+if command -v kubectl 2>&1 >/dev/null
+then
+    kubectl completion zsh 1> /dev/null
+fi
+
+if command -v helm 2>&1 >/dev/null
+then
+    helm completion zsh 1> /dev/null                                                                                                                                                                                                                                                                                  
+fi
