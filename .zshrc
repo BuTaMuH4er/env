@@ -95,3 +95,13 @@ if command -v helm 2>&1 >/dev/null
 then
     helm completion zsh 1> /dev/null                                                                                                                                                                                                                                                                                  
 fi
+
+#antigen for installin plugins
+[ ! -f ~/.zsh/antigen.zsh ] && curl -L git.io/antigen > ~/.zsh/antigen.zsh
+source ~/.zsh/antigen.zsh
+
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen apply
+
